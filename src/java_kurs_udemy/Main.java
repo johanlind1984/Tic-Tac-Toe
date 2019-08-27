@@ -6,31 +6,30 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int turn = 0;
         boolean isWinner = false;
-        String[] playField = {" ", " ", " ", " ", " ", " ", " ", " ", " "};
-        String[] testField = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+        int turn = 0;
         String[] playerMarkers = new String[2];
+        PlayArea playField = new PlayArea();
 
         while (!isWinner) {
             System.out.println("Welcome to Tic-Tac-Toe");
             System.out.println("#-#-#-#-#-#-#-#-#-#-#-#");
-            PlayArea.drawPlayfield(testField);
+            playField.drawPlayfield();
             System.out.println("Player 1, please chose your marker. 1 for 'X' and 2. for 'O'");
             playerMarkers = chooseMarker();
 
             while (!isWinner && turn < 9) {
                 if (turn % 2 == 0) {
-                    playField = PlayArea.placeMarker(playerMarkers[0], playField);
-                    isWinner = PlayArea.isWinner(playField, playerMarkers[0]);
+                    playField.placeMarker(playerMarkers[0]);
+                    isWinner = playField.isWinner(playerMarkers[0]);
 
                 } else {
-                    playField = PlayArea.placeMarker(playerMarkers[1], playField);
-                    isWinner = PlayArea.isWinner(playField, playerMarkers[1]);
+                    playField.placeMarker(playerMarkers[1]);
+                    isWinner = playField.isWinner(playerMarkers[1]);
 
                 }
 
-                PlayArea.drawPlayfield(playField);
+                playField.drawPlayfield();
                 turn++;
             }
         }
