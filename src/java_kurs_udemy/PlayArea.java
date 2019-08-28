@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class PlayArea {
     // This class handles everything about the playField. Methods like check if someone won, print the play field and placing markers.
-    private boolean isWinner = false;
     private static String[] playField = {" ", " ", " ", " ", " ", " ", " ", " ", " "};
 
     public static void drawPlayfield() {
